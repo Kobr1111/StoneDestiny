@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камень судьбы</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url('https://s.iimg.su/s/12/1fIgFQLY7l9NzvOAiwAPJldTP49qX9lSP7kBuEYP.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Фон фиксированный */
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: left;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            text-align: center;
+            color: white; /* Белый цвет текста */
+        }
+        .content {
+            margin-top: 50px;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(0, 0, 0, 0.6); /* Тень для улучшения читаемости текста */
+            padding-bottom: 50px;
+        }
+        .intro-text {
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .zodiac-section {
+            margin-bottom: 30px;
+        }
+        .zodiac-section img {
+            width: 400px;  /* Увеличиваем изображения до 400px */
+            height: 400px;
+            vertical-align: middle;
+            margin-right: 10px;
+            background-color: transparent; /* Убираем фон из изображений */
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .stones {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-top: 5px;
+            background-color: #8A2BE2; /* Ярко фиолетовый фон */
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* Стилизация кнопки */
+        .btn {
+            display: inline-block;
+            background-color: #9b59b6; /* Сереневый цвет */
+            color: white;
+            font-size: 24px;
+            padding: 15px 30px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        /* Эффект искорок */
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 215, 0, 0.7); /* Золотой цвет */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: sparkles 1.5s ease-out infinite;
+        }
+
+        @keyframes sparkles {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .btn:hover {
+            background-color: #8e44ad; /* Потемнение сереневого при наведении */
+        }
+
+        /* Стилизация модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            padding-top: 60px;
+        }
+
+        /* Контейнер для iframe */
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 80%;
+        }
+
+        /* Кнопка для закрытия окна */
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Камень судьбы</h1>
+
+    <!-- Кнопка -->
+    <div style="text-align: center; margin-top: 30px;">
+        <button class="btn" id="openModalBtn">Подберем камень по дате рождения</button>
+    </div>
+
+    <div class="content">
+        <div class="intro-text">
+            <p>Каждому человеку важно найти свой камень, который будет гармонизировать его энергетику и усиливать положительные черты характера. В мире существует множество природных камней, и каждый из них способен влиять на разные аспекты жизни. Но особое значение имеет подбор камня по знаку зодиака, так как каждый знак обладает своими уникальными энергетическими характеристиками. Используя камень, соответствующий вашему знаку, вы можете улучшить свою судьбу, наполнить жизнь внутренней гармонией и привлечь удачу в важных сферах жизни.</p>
+        </div>
+
+        <!-- Овен -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/2ca/овен.png" alt="Овен"> Овен</h2>
+            <p class="stones">Алмаз, Рубин, Аметист, Агат</p>
+        </div>
+
+        <!-- Телец -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/e0f/телец.png" alt="Телец"> Телец</h2>
+            <p class="stones">Изумруд, Рубин, Турмалин, Оникс</p>
+        </div>
+
+        <!-- Близнецы -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/5bd/близнецы-1.png" alt="Близнецы"> Близнецы</h2>
+            <p class="stones">Цитрин, Малахит, Яшма, Аквамарин</p>
+        </div>
+
+        <!-- Рак -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/6b3/рак.png" alt="Рак"> Рак</h2>
+            <p class="stones">Жемчуг, Лунный камень, Бирюза, Опал</p>
+        </div>
+
+        <!-- Лев -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/3a6/лев.png" alt="Лев"> Лев</h2>
+            <p class="stones">Сапфир, Яшма, Топаз, Камень Солнца</p>
+        </div>
+
+        <!-- Дева -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/83f/дева.png" alt="Дева"> Дева</h2>
+            <p class="stones">Сардоникс, Бирюза, Хризолит, Аквамарин</p>
+        </div>
+
+        <!-- Весы -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/6e1/весы.png" alt="Весы"> Весы</h2>
+            <p class="stones">Опал, Розовый кварц, Топаз, Лазурит</p>
+        </div>
+
+        <!-- Скорпион -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/71e/скорпион.png" alt="Скорпион"> Скорпион</h2>
+            <p class="stones">Топаз, Опал, Аквамарин, Гранат</p>
+        </div>
+
+        <!-- Стрелец -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/cae/стрелец.png" alt="Стрелец"> Стрелец</h2>
+            <p class="stones">Бирюза, Топаз, Лазурит, Аметист</p>
+        </div>
+
+        <!-- Козерог -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/600/Козерог.jpg" alt="Козерог"> Козерог</h2>
+            <p class="stones">Гранат, Топаз, Оникс, Турмалин</p>
+        </div>
+
+        <!-- Водолей -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/945/Водолей.jpg" alt="Водолей"> Водолей</h2>
+            <p class="stones">Аметист, Гранат, Бирюза, Лазурит</p>
+        </div>
+
+        <!-- Рыбы -->
+        <div class="zodiac-section">
+            <h2><img src="https://samotsvet.ru/upload/iblock/1a3/рыбы.png" alt="Рыбы"> Рыбы</h2>
+            <p class="stones">Аквамарин, Жемчуг, Лунный камень, Аметист</p>
+        </div>
+    </div>
+
+    <!-- Модальное окно с iframe -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <iframe src="https://julitta.ru/calculator" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Получаем элементы
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementById("closeModalBtn");
+
+        // Когда пользователь нажимает на кнопку, открывается модальное окно
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Когда пользователь нажимает на (x), закрывается модальное окно
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Когда пользователь кликает в любом месте вне окна, оно также закрывается
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
